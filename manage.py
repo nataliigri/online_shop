@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import sqlite3
 
 def main():
     """Run administrative tasks."""
@@ -17,6 +17,26 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+    # Connecting to sqlite
+    conn= sqlite3.connect('db.sqlite3')
+    
+    # create cursor
+    c = conn.cursor()
+    
+    c.execute("INSERT INTO store_category VALUES ('6','Тіло & ванна','tiloivanna')")
+   
+    
+    # Display data inserted
+    print("Data Inserted in the table: ")
+    data=c.execute('''SELECT * FROM store_category''')
+    for row in data:
+        print(row)
+    
+    # Commit your changes in the database    
+    conn.commit()
+    
+    # Closing the connection
+    conn.close()
 
 if __name__ == '__main__':
     main()
