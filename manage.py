@@ -22,8 +22,7 @@ def main():
     
     # create cursor
     c = conn.cursor()
-    
-    c.execute("INSERT INTO store_category VALUES ('6','Тіло & ванна','tiloivanna')")
+    c.execute("INSERT INTO store_category VALUES ('11','Аксесуари','healthcare')")
    
     
     # Display data inserted

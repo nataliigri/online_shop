@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Імпортувати дані з Excel</title>
+</head>
+<body>
+    <h1>Імпортувати дані з Excel</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <button type="submit">Імпортувати</button>
+    </form>
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    <div class="alert alert-success" role="alert">
+        {{ success }}
+    </div>
+</body>
+</html>
